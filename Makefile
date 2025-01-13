@@ -52,16 +52,19 @@ OBJS_B = ${SRCS_B:.c=.o}
 OBJS = ${SRCS:.c=.o}
 
 CC = cc
+
 CFLAGS = -Wall -Wextra -Werror
 
 AR = ar crs
+
 ECHO = echo
+
 RM = rm -f
 
 NAME = libft.a
 
 %.o: %.c libft.h
-	@$(CC) $(CFLAGS) -c $^ 
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
 	@$(AR) $(NAME) $^
@@ -82,4 +85,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: clean
